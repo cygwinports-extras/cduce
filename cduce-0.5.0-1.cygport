@@ -1,0 +1,30 @@
+inherit ocaml
+
+ocaml_pv=$(${OCAMLC} -version)
+
+DESCRIPTION="CDuce XML-oriented functional language interpreter"
+HOMEPAGE="http://www.cduce.org/"
+SRC_URI="
+	http://www.cduce.org/download/${P}.tar.gz
+	http://caml.inria.fr/pub/distrib/ocaml-${ocaml_pv%.*}/ocaml-${ocaml_pv}.tar.gz
+"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	# use curl and expat instead of netclient and pxp
+	./configure \
+		--prefix=${D}/usr \
+		--docdir=${D}/usr/share/doc/${P} \
+		--mandir=${D}/usr/share/man \
+		--mliface=${S}/../ocaml-${ocaml_pv} \
+		--without-pxp \
+		|| error "configure failed"
+	cygmake -j1 all dtd2cduce
+}
+
+src_install() {
+	cd ${B}
+	ocaml_install DOCDIR=${D}/usr/share/doc/${P}
+	dobin dtd2cduce.exe
+}
