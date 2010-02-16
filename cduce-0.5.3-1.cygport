@@ -1,0 +1,31 @@
+inherit ocaml
+
+ocaml_pv=$(${OCAMLC} -version)
+
+DESCRIPTION="CDuce XML-oriented functional language interpreter"
+HOMEPAGE="http://www.cduce.org/"
+SRC_URI="http://www.cduce.org/download/${P}.tar.gz
+         http://caml.inria.fr/pub/distrib/ocaml-${ocaml_pv%.*}/ocaml-${ocaml_pv}.tar.gz"
+
+PKG_NAMES="${PN} ocaml-${PN}"
+cduce_CONTENTS="--exclude=*mktop* usr/bin/ usr/share/"
+ocaml_cduce_CONTENTS="usr/bin/*mktop ${OCAML_LIBDIR#/} usr/share/man/man1/*mktop*"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	./configure \
+		--prefix=${D}/usr \
+		--docdir=${D}/usr/share/doc/${PN} \
+		--mandir=${D}/usr/share/man \
+		--mliface=${S}/../ocaml-${ocaml_pv} \
+		|| error "configure failed"
+	cygmake -j1 all
+}
+
+src_install() {
+	cd ${B}
+	ocaml_install DOCDIR=${D}/usr/share/doc/${PN}
+	# false positive from the 'Caml1999X008' file magic test
+	strip ${D}/usr/bin/cduce.exe
+}

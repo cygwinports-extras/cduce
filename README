@@ -6,20 +6,29 @@ license. CDuce is type-safe, efficient, and offer powerful constructions
 to work with XML documents.
 
 Runtime requirements:
-  ocaml-3.10.1-1
-  ocaml-curl-0.2.1-1
-  ocaml-expat-0.9.1-1
-  ocaml-pcre-5.12.2-1
-  ocaml-ulex-1.0-1
+  cygwin-1.7.1-1
+  libcurl4-7.19.6-1
+  libexpat1-2.0.1-1
+  libgcc1-4.3.4-3
+  libpcre0-8.00-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.25-7
-  binutils-20060817-1
-  cygport-0.3.8-1
-  gcc-core-3.4.4-3
-  make-3.81-1
-  ocaml-findlib-1.2.1-1
+  binutils-2.19.51-1
+  cygport-0.9.80-1
+  flexdll-0.22-1
+  gcc4-core-4.3.4-3
+  make-3.81-2
+  ocaml-3.11.2-1
+  ocaml-camlp4-3.11.2-1
+  ocaml-curl-0.5.2-1
+  ocaml-expat-0.9.1-2
+  ocaml-findlib-1.2.5-1
+  ocaml-netcgi-2.2.9-3
+  ocaml-netstring-2.2.9-3
+  ocaml-pcre-6.0.1-2
+  ocaml-pxp-1.2.1-1
+  ocaml-ulex-1.1-1
 
 Canonical website:
   http://www.cduce.org/
@@ -30,67 +39,23 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack cduce-0.5.0-X-src.tar.bz2
+  unpack cduce-0.5.3-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./cduce-0.5.0-X.cygport all
+  cygport ./cduce-0.5.3-X.cygport all
 
 This will create:
-  /usr/src/cduce-0.5.0-X-src.tar.bz2
-  /usr/src/cduce-0.5.0-X.tar.bz2
+  /usr/src/cduce-0.5.3-X-src.tar.bz2
+  /usr/src/cduce-0.5.3-X.tar.bz2
+  /usr/src/ocaml-cduce-0.5.3-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary package:
-
-  /usr/bin/cduce.exe
-  /usr/bin/cduce_mktop
-  /usr/bin/dtd2cduce.exe
-  /usr/lib/ocaml/3.10/cduce/META
-  /usr/lib/ocaml/3.10/cduce/cduce_lib.a
-  /usr/lib/ocaml/3.10/cduce/cduce_lib.cma
-  /usr/lib/ocaml/3.10/cduce/cduce_lib.cmi
-  /usr/lib/ocaml/3.10/cduce/cduce_lib.cmxa
-  /usr/share/doc/cduce-0.5.0/AUTHORS
-  /usr/share/doc/cduce-0.5.0/CHANGES
-  /usr/share/doc/cduce-0.5.0/INSTALL
-  /usr/share/doc/cduce-0.5.0/INSTALL.WIN32
-  /usr/share/doc/cduce-0.5.0/LICENSE
-  /usr/share/doc/cduce-0.5.0/README
-  /usr/share/doc/cduce-0.5.0/img/left.gif
-  /usr/share/doc/cduce-0.5.0/img/right.gif
-  /usr/share/doc/cduce-0.5.0/index.html
-  /usr/share/doc/cduce-0.5.0/manual.html
-  /usr/share/doc/cduce-0.5.0/manual_expressions.html
-  /usr/share/doc/cduce-0.5.0/manual_interfacewithocaml.html
-  /usr/share/doc/cduce-0.5.0/manual_interpreter.html
-  /usr/share/doc/cduce-0.5.0/manual_schema.html
-  /usr/share/doc/cduce-0.5.0/manual_schema_samples.html
-  /usr/share/doc/cduce-0.5.0/manual_types_patterns.html
-  /usr/share/doc/cduce-0.5.0/memento.html
-  /usr/share/doc/cduce-0.5.0/namespaces.html
-  /usr/share/doc/cduce-0.5.0/sitemap.html
-  /usr/share/doc/cduce-0.5.0/tutorial.html
-  /usr/share/doc/cduce-0.5.0/tutorial_errors.html
-  /usr/share/doc/cduce-0.5.0/tutorial_exercises.html
-  /usr/share/doc/cduce-0.5.0/tutorial_first_functions.html
-  /usr/share/doc/cduce-0.5.0/tutorial_getting_started.html
-  /usr/share/doc/cduce-0.5.0/tutorial_higherorder.html
-  /usr/share/doc/cduce-0.5.0/tutorial_overloading.html
-  /usr/share/doc/cduce-0.5.0/tutorial_patterns.html
-  /usr/share/doc/cduce-0.5.0/tutorial_queries.html
-  /usr/share/doc/cduce-0.5.0/tutorial_references.html
-  /usr/share/man/man1/cduce.1.gz
-  /usr/share/man/man1/cduce_mktop.1.gz
-  /usr/share/man/man1/dtd2cduce.1.gz
-
-------------------
-
 Port Notes:
 
------ version 0.5.0-1 -----
-Initial release for Cygwin.
+----- version 0.5.3-1 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:
