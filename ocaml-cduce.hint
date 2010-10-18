@@ -1,5 +1,5 @@
 category: OCaml
-requires: cduce ocaml ocaml-camlp4 ocaml-curl ocaml-expat ocaml-netcgi ocaml-netstring ocaml-pcre ocaml-pxp ocaml-ulex
+requires: cduce ocaml-base ocaml-camlp4 ocaml-curl ocaml-expat ocaml-netcgi ocaml-netstring ocaml-pcre ocaml-pxp ocaml-ulex
 external-source: cduce
 sdesc: "OCaml CDuce language library"
 ldesc: "CDuce is a modern XML-oriented functional language with 

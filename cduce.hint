@@ -1,5 +1,5 @@
 category: Interpreters OCaml
-requires: libcurl4 libexpat1 libgcc1 libpcre0
+requires: libcurl4 libexpat1 libpcre0
 sdesc: "CDuce XML-oriented language interpreter"
 ldesc: "CDuce is a modern XML-oriented functional language with 
 innovative features. A compiler is available under the terms of an 
