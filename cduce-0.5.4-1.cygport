@@ -7,6 +7,15 @@ HOMEPAGE="http://www.cduce.org/"
 SRC_URI="http://www.cduce.org/download/${P}.tar.gz
          http://caml.inria.fr/pub/distrib/ocaml-${ocaml_pv%.*}/ocaml-${ocaml_pv}.tar.gz"
 
+DEPEND="ocaml(camlp4)
+	ocaml(curl)
+	ocaml(expat)
+	ocaml(netclient)
+	ocaml(netstring)
+	ocaml(pcre)
+	ocaml(pxp)
+	ocaml(ulex)"
+
 PKG_NAMES="${PN} ocaml-${PN}"
 cduce_CONTENTS="--exclude=*mktop* usr/bin/ usr/share/"
 ocaml_cduce_CONTENTS="usr/bin/*mktop ${OCAML_LIBDIR#/} usr/share/man/man1/*mktop*"
@@ -26,6 +35,4 @@ src_compile() {
 src_install() {
 	cd ${B}
 	ocaml_install DOCDIR=${D}/usr/share/doc/${PN}
-	# false positive from the 'Caml1999X008' file magic test
-	strip ${D}/usr/bin/cduce.exe
 }
