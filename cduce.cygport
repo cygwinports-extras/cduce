@@ -2,7 +2,15 @@ inherit ocaml
 
 ocaml_pv=$(${OCAMLC} -version)
 
-DESCRIPTION="CDuce XML-oriented functional language interpreter"
+NAME="cduce"
+VERSION=0.5.5
+RELEASE=1
+CATEGORY="Interpreters"
+SUMMARY="CDuce XML-oriented functional language interpreter"
+DESCRIPTION="CDuce is a modern XML-oriented functional language with innovative
+features. A compiler is available under the terms of an open-source license.
+CDuce is type-safe, efficient, and offer powerful constructions to work with
+XML documents."
 HOMEPAGE="http://www.cduce.org/"
 SRC_URI="http://www.cduce.org/download/${P}.tar.gz
          http://caml.inria.fr/pub/distrib/ocaml-${ocaml_pv%.*}/ocaml-${ocaml_pv}.tar.gz"
@@ -18,6 +26,8 @@ DEPEND="ocaml(camlp4)
 
 PKG_NAMES="${PN} ocaml-${PN}"
 cduce_CONTENTS="--exclude=*mktop* usr/bin/ usr/share/"
+ocaml_cduce_CATEGORY="OCaml"
+ocaml_cduce_SUMMARY="OCaml CDuce interpreter library"
 ocaml_cduce_CONTENTS="usr/bin/*mktop ${OCAML_LIBDIR#/} usr/share/man/man1/*mktop*"
 
 src_compile() {
