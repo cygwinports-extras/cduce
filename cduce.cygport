@@ -4,7 +4,7 @@ ocaml_pv=$(${OCAMLC} -version)
 
 NAME="cduce"
 VERSION=0.5.5
-RELEASE=1
+RELEASE=2
 CATEGORY="Interpreters"
 SUMMARY="CDuce XML-oriented functional language interpreter"
 DESCRIPTION="CDuce is a modern XML-oriented functional language with innovative
@@ -12,8 +12,9 @@ features. A compiler is available under the terms of an open-source license.
 CDuce is type-safe, efficient, and offer powerful constructions to work with
 XML documents."
 HOMEPAGE="http://www.cduce.org/"
-SRC_URI="http://www.cduce.org/download/${P}.tar.gz
-         http://caml.inria.fr/pub/distrib/ocaml-${ocaml_pv%.*}/ocaml-${ocaml_pv}.tar.gz"
+SRC_URI="http://www.cduce.org/download/${NAME}-${VERSION}.tar.gz"
+# ML_INTERFACE not compatible with ocaml-4.x
+#         http://caml.inria.fr/pub/distrib/ocaml-${ocaml_pv%.*}/ocaml-${ocaml_pv}.tar.gz"
 
 DEPEND="ocaml(camlp4)
 	ocaml(curl)
@@ -24,18 +25,21 @@ DEPEND="ocaml(camlp4)
 	ocaml(pxp)
 	ocaml(ulex)"
 
-PKG_NAMES="${PN} ocaml-${PN}"
+PKG_NAMES="${NAME} ocaml-${NAME}"
 cduce_CONTENTS="--exclude=*mktop* usr/bin/ usr/share/"
-ocaml_cduce_CATEGORY="OCaml"
+ocaml_cduce_CATEGORY="Libs"
 ocaml_cduce_SUMMARY="OCaml CDuce interpreter library"
-ocaml_cduce_CONTENTS="usr/bin/*mktop ${OCAML_LIBDIR#/} usr/share/man/man1/*mktop*"
+ocaml_cduce_CONTENTS=${OCAML_LIBDIR#/}
+if false; then
+ocaml_cduce_CONTENTS+=" usr/bin/*mktop usr/share/man/man1/*mktop*"
+fi
 
 src_compile() {
 	lndirs
 	cd ${B}
 	./configure \
 		--prefix=${D}/usr \
-		--docdir=${D}/usr/share/doc/${PN} \
+		--docdir=${D}/usr/share/doc/${NAME} \
 		--mandir=${D}/usr/share/man \
 		--mliface=${S}/../ocaml-${ocaml_pv} \
 		|| error "configure failed"
@@ -44,5 +48,5 @@ src_compile() {
 
 src_install() {
 	cd ${B}
-	ocaml_install DOCDIR=${D}/usr/share/doc/${PN}
+	ocaml_install DOCDIR=${D}/usr/share/doc/${NAME}
 }
